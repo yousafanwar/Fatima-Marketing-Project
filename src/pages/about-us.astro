@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import "../Styles/stylesheet.css";
+import Footer from '../components/footer.astro';
+// import 'bootstrap/dist/css/bootstrap.css'
+---
+
+<Layout title='about-us'>
+    <div class="container-fluid">
+
+    <section>
+        <div class="row">
+            <div class="aboutUs-sec1">
+                <div class="col-12">
+                    <h1>About Us</h1>
+                </div>
+                <div class="col-8">
+                    <blockquote>
+                        Your trusted partner for digital marketing success. At Fatima Marketing, we are passionate about helping businesses thrive in the digital landscape. With a team of dedicated experts and a commitment to delivering exceptional results, we have earned a reputation as a leading digital marketing agency.
+                    </blockquote>
+                </div>
+            </div>
+            
+        </div>
+</section>
+
+<!-- SECTION # 2 -->
+<section class="aboutUs-sec2">
+  <h2 id="target">Our Mission</h2>
+  <blockquote class="slide-out blockquote-slide">Our mission is simple: to drive your success in the digital world. We understand that every business is unique, and we tailor our digital marketing strategies to meet your specific goals and objectives. Whether you're looking to increase brand awareness, boost website traffic, generate leads, or improve conversion rates, we have the expertise to make it happen.
+  </blockquote>
+  
+  <h2>Our Vision</h2>
+  <blockquote class="slide-out blockquote-slide">
+    At Fatima Marketing, we envision a future where businesses of all sizes harness the full potential of the digital realm to thrive and connect with their audiences in innovative and impactful ways. Our vision is rooted in the belief that the digital landscape holds limitless opportunities for growth and transformation, and we are committed to being at the forefront of this ever-evolving landscape.
+    <br>
+    We envision businesses pushing the boundaries of creativity and innovation, breaking free from the confines of traditional marketing to craft campaigns that captivate, engage, and leave a lasting impression on their target audience.
+    <br>
+    Join us on this journey towards a future where digital success is accessible to all, and together, we can shape a world where your business's potential knows no bounds.
+  </blockquote>
+
+</section>
+    </div>
+</Layout>
+<Footer />
+
+<script>
+    // alert("JS has been attached")
+
+let slideInEffect = document.querySelectorAll(".blockquote-slide");
+
+
+function intersectionObsFunc(entries: any){
+    entries.forEach(function(entry: any){
+        if(entry.isIntersecting){
+            // alert("The intersection has been made");
+ 
+
+            slideInEffect.forEach(function(entry){
+                if(entry.classList.contains("slide-out")){
+                    entry.classList.remove("slide-out");
+                    entry.classList.add("slide-in");            
+                }                    
+            })
+                
+        }
+    })
+}
+
+let options = {
+    root: null,
+    threshold: 0.5,
+};
+
+let observer = new IntersectionObserver(intersectionObsFunc, options);
+
+let target = document.querySelector("#target");
+
+if(target){
+    observer.observe(target);
+}
+
+</script>
+
+<style>
+/* ABOUT US CSS */
+
+.aboutUs-sec1{
+  margin-top: 90px;
+  height: 500px;
+  padding-top: 170px;
+  background-color: #1c1235;
+  color: white;
+  /* max-width: 100%; */
+}
+
+.aboutUs-sec2{
+  margin-top: 20px;
+  /* height: 400px; */
+  margin-left: 5px;
+  /* margin-bottom: 150px;  */
+}
+
+.aboutUs-sec2 h2{
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.aboutUs-sec2 blockquote{
+  /* display: none; */
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.slide-in{
+  transform: translateX(0);
+  transition: ease 2s;
+}
+
+.slide-out{
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}    
+</style>

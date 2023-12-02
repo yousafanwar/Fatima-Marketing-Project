@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from '../components/footer.astro';
+// import '../Styles/stylesheet.css';
+import whattsapp from '../components/Images/whatsapp-logo.png';
+---
+
+<Layout title = 'contact us'>
+    <main>
+    <div class="container-fluid">
+
+    <!-- THE START OF SECTION 1  -->
+    <section>
+            <div class="row">
+                <div class="aboutUs-sec1">
+                    <div class="col-sm-12 rounded-lg float-end contactUs-form">
+                        <form action="/action_page.php">
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input class="form-control" type="text" id="inputName" placeholder="Name">
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input class="form-control" type="email" id="inputEmail" placeholder="Email Address">
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="pwd">Contact Number</label>
+                          <input class="form-control" type="tel" id="inputPassword" placeholder="Contact Number">
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="request">Request</label>
+                          <select class="form-control custom-select custom-select-md" id="selectRequest">
+                            <option selected>Please Choose</option>
+                            <option value="speak-to-sales-team">Speak to Sales Team</option>
+                            <option value="request-for-website-audit">Request for Website Audit</option>
+                            <option value="general-inquiry">General Inquiry</option>
+                          </select>
+                        </div>
+                  
+                        <div class="form-group">
+                          <label for="msg">Message</label>
+                          <input class="form-control" type="text" id="inputMsg" placeholder="Enter text here">
+                        </div>
+                  
+                        <button type="submit" class="btn btn-light contactUs-form-btn">Submit</button>
+                      </form>
+                      </div>
+
+                    
+
+                    <div class="col-sm-3 contact-us-title">
+                        <h1>Contact Us</h1>
+                        <blockquote>Let's discuss your digital marketing needs.</blockquote>
+                    </div>
+
+                </div>
+                
+            </div>
+    </section>     <!-- THE START OF SECTION 1  -->
+
+
+<!-- THE START OF SECTION 2 -->
+    <section class="contactUs-sec2">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-4 mx-auto contactUs-sec2-text">
+                    <h5>Ready to expand your online presence?</h5>
+                    <blockquote>Complete our form, and we'll furnish you with a free evaluation of your website and analytics. Discover new opportunities to boost your digital success.</blockquote>
+                </div>
+
+                <div class="col-sm-4 float-end contactUs-sec2-img">
+
+                  <img src= {whattsapp.src} class="rounded" alt="Cinque Terre" height="70px">
+
+                  <blockquote>You can also contact us on whattsapp on +971 52 824 4571</blockquote>
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</div>
+  </main>
+</Layout>
+
+<Footer />
+
+<style>
+    .aboutUs-sec1{
+  margin-top: 90px;
+  height: 500px;
+  /* padding-top: 100px; */
+  background-color: #1c1235;
+  color: white;
+  max-width: 100%;
+}
+
+.contactUs-form{
+  /* position: flex; */
+  background-color: #21172b;
+  /* margin-left: 700px; */
+  margin-top: 50px;
+  /* padding-left: 700px; */
+  max-width: 40%;
+  /* height: 200px; */
+  /* width: 55%; */
+  
+   
+}
+
+.form-group{
+  padding-bottom: 5px;
+}
+
+.contact-us-title{
+  margin-top: 380px;
+}
+
+.contactUs-sec2{
+  margin-top: 50px;
+}
+
+.contactUs-sec2-text{
+  padding: 20px;
+  text-align: center;
+}
+
+.contactUs-sec2-img{
+  height: 200px;
+  background-color: #1c1235;
+}
+
+.contactUs-sec2-img img{
+  padding-top: 15px;
+  padding-left: 155px;
+}
+
+.contactUs-sec2-img blockquote{
+  color: silver;
+  text-align: center;
+  padding-top: 10%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+</style>

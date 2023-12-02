@@ -1,0 +1,158 @@
+<footer class="footer">
+         
+
+    <div class="row">
+        <div class="col sm-3-footr1">
+            <h3>Company</h3>
+            <ul class="footr-nav-links">
+                <li><a class="footer__link" href="About-us.html">About us</a></li>
+                <li><a class="footer__link" href="Contact-us.html">Contact us</a></li>
+            </ul>    
+        </div>
+
+        
+        <div class="col sm-3-footr1">
+            <h3>Services</h3>
+            <ul class="footr-nav-links">
+                <li><a class="footer__link" href="About-us.html">SEO</a></li>
+                <li><a class="footer__link" href="About-us.html">Email Marketing</a></li>
+                <li><a class="footer__link" href="About-us.html">Web Development</a></li>
+                <li><a class="footer__link" href="About-us.html">Social Media Marketing</a></li>
+            </ul>
+        </div>
+
+
+        
+            <div class="col" style="border-left: #E5E4E2 solid;">
+                <label>Subscribe to our Newsletter</label>
+
+                <form class="subscribe-form">
+                
+                    <input type="email" id="emailAddress" class="form-control" placeholder="Enter your email address">
+                    
+
+                        <div class="emailFormatMsg">Email must be formatted correctly.</div>
+                        <button id="emailBtn" class="btn btn-light">Subscribe</button>
+                </form>
+                <div class="confirmationMsg">Thanks for the subscription!</div>
+            </div>
+        
+
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<script>
+    let subscribeInput:any = document.querySelector("#emailAddress");
+let subscribeBtn:any = document.querySelector("#emailBtn");
+let confirmationMsg:any = document.querySelector(".confirmationMsg");
+let subForm:any = document.querySelector(".subscribe-form");
+let email_Invalid_Msg:any = document.querySelector(".emailFormatMsg");
+
+function isValidEmail(email:any) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+subscribeBtn.addEventListener('click', function(e:any){
+  e.preventDefault();
+  let email = subscribeInput.value.trim();  
+  if(email !== " " && isValidEmail(email)){
+    console.log(email);
+    subForm.style.display = 'none';
+    confirmationMsg.style.display = 'block';
+  }else{
+    subscribeInput.style.border = 'solid red';
+    email_Invalid_Msg.style.visibility = "visible";
+  } 
+})
+
+
+</script>
+
+<style>
+.footer{
+
+display: flex;
+justify-content: space-between;
+padding: 2rem;
+background-color: #151e3d;
+color: white;
+box-sizing: border-box;
+}
+
+
+
+
+
+.footer h3{
+font-size: 1.4rem;
+margin-bottom: 1rem;
+padding-left: 2rem;
+}
+
+.footr-nav-links{
+list-style: none;
+}
+
+.footer__link:link,
+.footer__link:visited{
+font-size: 1.2rem;
+color: white;
+text-decoration: none;
+display: block;
+transition: all 0.5s;
+line-height: 1.5;
+}
+
+.footer__link:hover{
+color: gray;
+}
+
+/* .subscribe-form{
+display: flex;
+flex-direction: column;
+margin-bottom: 10px;
+} */
+
+/* button styling 
+transition: background-color 0.3s ease */
+
+/* Style the input and button within the subscribe form */
+#emailAddress{
+width: 100%; /* Make the input and button full width */
+margin-bottom: 10px; /* Add spacing between input and button */
+padding: 10px; /* Add padding for better appearance */
+border: solid white; /* Remove default border */
+border-width: 3px;
+color: white;
+background-color: inherit; /* Choose your button background color */
+transition: 0.2s;
+}
+
+
+
+.confirmationMsg{
+/* padding: 2rem; */
+text-align: center;
+}
+
+.emailFormatMsg{
+visibility: hidden;
+transition: 0.2s;
+padding-bottom: 5px;
+}
+
+.confirmationMsg{
+display: none;
+}
+
+.sm-3-footr1{
+border-left: #E5E4E2 solid;
+margin-right: 5px;
+padding-right: 140px;
+padding-left: 255px
+list-style: none;
+}
+</style>
